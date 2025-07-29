@@ -22,13 +22,13 @@ public class ResolverFactory {
             return buildFileResolver();
         }
         if (EnumReqScheme.XML.equals(scheme)) {
-            return buildFileResolver();
+            return buildXmlResolver();
         }
         if (EnumReqScheme.MULTI_FORM.equals(scheme)) {
-            return buildFileResolver();
+            return buildMultiFormResolver();
         }
         if (EnumReqScheme.CUSTOM.equals(scheme)) {
-            return buildFileResolver();
+            return buildCustomResolver();
         }
 
         throw new RuntimeException("Illegal request scheme.");
