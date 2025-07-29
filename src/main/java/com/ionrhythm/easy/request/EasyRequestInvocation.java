@@ -274,7 +274,7 @@ public class EasyRequestInvocation implements InvocationHandler {
         if (HttpURLConnection.HTTP_OK != easyResponse.getCode()) {
             throw new RuntimeException(easyResponse.getCode() + " " + easyResponse.getReason() + " " + IOUtils.toString(inputStream, StandardCharsets.UTF_8));
         }
-        Object entity = available == 0 ? null : dealResponse(request, inputStream, type);
+        Object entity = dealResponse(request, inputStream, type);
         call(interceptor -> interceptor.onReceive(request, entity));
         return entity;
     }
